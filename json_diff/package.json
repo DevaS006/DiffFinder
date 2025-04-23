@@ -1,5 +1,6 @@
 {
   "name": "json_diff",
   "version": "0.1.0",
-  "private": true
+  "private": true,
+  "homepage": "https://DevaS006.github.io/DiffFinder"
 }

@@ -1,0 +1,220 @@
+  .diff-wrapper {
+    width: 100%;
+    max-width: 1400px;
+    margin: 2rem auto;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow-x: auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+    padding: 1rem;
+  }
+  
+  .diff-wrapper:hover {
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+  }
+
+  .diff-viewer-container{
+    width: 75%;
+    max-width: 1400px;
+
+  }
+  
+  .diff-container {
+    width: 100%;
+    max-width: 1400px;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    background: #ffffff;
+    table-layout: auto;
+    margin: 2rem 0 0 0;
+  }
+  
+  .diff-container pre {
+    margin: 0;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  
+  .line {
+    vertical-align: top;
+    transition: background 0.2s ease;
+  }
+  
+  .line:hover {
+    background-color: #f8fafc !important;
+  }
+  
+  .gutter {
+    min-width: 60px;
+    padding: 8px 12px;
+    text-align: right;
+    background: #f1f5f9;
+    border-right: 1px solid #e2e8f0;
+    color: #64748b;
+    user-select: none;
+  }
+  
+  .gutter.diff-added {
+    background: rgba(209, 250, 229, 0.8);
+    border-right: 1px solid #a7f3d0;
+  }
+  
+  .gutter.diff-removed {
+    background: rgba(254, 226, 226, 0.8);
+    border-right: 1px solid #fecaca;
+  }
+  
+  .line-number {
+    font-size: 0.85rem;
+  }
+  
+  .marker {
+    width: 30px;
+    padding: 8px 12px;
+    text-align: center;
+    border-right: 1px solid #e2e8f0;
+    user-select: none;
+  }
+  
+  .marker.diff-added {
+    background: rgba(209, 250, 229, 0.3);
+  }
+  
+  .marker.diff-added pre {
+    color: #059669;
+    font-weight: 700;
+  }
+  
+  .marker.diff-removed {
+    background: rgba(254, 226, 226, 0.3);
+  }
+  
+  .marker.diff-removed pre {
+    color: #dc2626;
+    font-weight: 700;
+  }
+  
+  .content {
+    padding: 8px 16px;
+    width: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  
+  .content.diff-added {
+    background: rgba(209, 250, 229, 0.3);
+    animation: highlightAdded 1.5s ease;
+  }
+  
+  .content.diff-removed {
+    background: rgba(254, 226, 226, 0.3);
+    animation: highlightRemoved 1.5s ease;
+  }
+  
+  .content-text {
+    color: #1e293b;
+    margin: 0;
+  }
+  
+  .word-added {
+    background: #6ee7b7;
+    padding: 2px 4px;
+    border-radius: 3px;
+    animation: fadeIn 0.3s ease;
+  }
+  
+  .word-removed {
+    background: #f9a8d4;
+    padding: 2px 4px;
+    border-radius: 3px;
+    animation: fadeIn 0.3s ease;
+  }
+  
+  .empty-diff {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    background: #f9fafb;
+    border-radius: 12px;
+    color: #64748b;
+    font-size: 1.1rem;
+    font-weight: 500;
+    font-style: italic;
+    margin: 1rem;
+  }
+  .compare-btn{
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  .controls{
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    padding: 2px;
+    margin: auto;
+  }
+
+  @keyframes highlightAdded {
+    0% { background: rgba(209, 250, 229, 0.7); }
+    100% { background: rgba(209, 250, 229, 0.3); }
+  }
+  
+  @keyframes highlightRemoved {
+    0% { background: rgba(254, 226, 226, 0.7); }
+    100% { background: rgba(254, 226, 226, 0.3); }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @media (max-width: 425px) {
+    .diff-wrapper {
+      width: 100%;
+      padding: 0.5rem;
+    }
+  
+    .diff-container {
+      font-size: 12px;
+    }
+    .diff-controller Button{
+      width: 110px;
+    }
+    .controls{
+      flex-direction: column;
+      align-items: center;
+      width: 90%;
+      font-size: 1rem;
+      gap:2em;
+    }
+  
+    .gutter {
+      min-width: 40px;
+      padding: 6px 8px;
+    }
+  
+    .marker {
+      width: 25px;
+      padding: 6px 8px;
+    }
+  
+    .content {
+      padding: 6px 12px;
+    }
+  
+    .line-number {
+      font-size: 0.8rem;
+    }
+  
+    .empty-diff {
+      font-size: 1rem;
+      height: 150px;
+    }
+  }

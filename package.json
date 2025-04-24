@@ -2,6 +2,7 @@
   "name": "json_dif_analyser",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://DevaS006.github.io/DiffFinder",
   "dependencies": {
     "@chakra-ui/react": "^3.16.1",
     "@emotion/react": "^11.14.0",

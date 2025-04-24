@@ -1,5 +1,7 @@
-import { DiffType } from './constants';
-import { diffChars } from './DiffMethod';
+import { DiffType } from '../Char diff/constants';
+import { diffChars } from '../../Diff Utils/DiffMethod';
+
+// /home/deva-zstch1414/Desktop/React_Mail/json_dif_analyser/src/Diff Utils/DiffMethod.js
 
 // Computes character-level differences between old and new strings and returns structured diff info for left and right views.
 

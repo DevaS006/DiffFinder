@@ -1,6 +1,6 @@
 import React from 'react';
 import { Table } from "@chakra-ui/react";
-import { DiffLine } from '../DiffLine';
+import { DiffLine } from '../UiView/DiffLine';
 
 
 // The SplitLine component is responsible for rendering a comparison row in the split diff view.

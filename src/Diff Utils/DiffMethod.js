@@ -1,4 +1,4 @@
-import { diff } from './Diff';
+import { diff } from '../Main/Diff';
 import { tokenizeChar,tokenizeLine } from './Utils';
 
 // Character-level diffing using the base Diff class.

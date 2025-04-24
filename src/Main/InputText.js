@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { handleFileSelection } from './FileChecker';
-import DiffViewer from './UiView/DiffViewer';
-import './Styles/InputText.css';
+import { handleFileSelection } from '../FileChecker';
+import DiffViewer from '../UiView/DiffViewer';
+import '../Styles/InputText.css';
 import { Button, Textarea, Field, FileUpload, Code } from "@chakra-ui/react"
 import { HiUpload } from "react-icons/hi"
 

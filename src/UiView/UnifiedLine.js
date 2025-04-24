@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table } from "@chakra-ui/react";
-import { DiffType } from '../constants';
-import { DiffLine } from '../DiffLine';
+import { DiffType } from '../Diff_Fn/Char diff/constants';
+import { DiffLine } from '../UiView/DiffLine';
 
 
 // The UnifiedLine component is responsible for rendering a comparison row in the unified diff view.It checks the diff type of both left and right JSON lines (removed, added, or unchanged) and displays the corresponding line for each diff type. The lines are rendered as `Table.Row` components with theassociated diff content inside.

@@ -1,4 +1,4 @@
-import { diff } from '../../Main/diff';
+import { diff } from './../diff-fn/char-diff/diff';
 import { tokenizeChar,tokenizeLine } from './Utils';
 
 // Character-level diffing using the base Diff class.
@@ -6,7 +6,6 @@ import { tokenizeChar,tokenizeLine } from './Utils';
 // It exports a utility function `diffChars` to compute the character-level differences between two strings.
 
 export function diffChars(oldStr, newStr, options) { return diff(oldStr, newStr, tokenizeChar, options); }
-
 
 
 // Custom line-based diff logic extending the Diff class.

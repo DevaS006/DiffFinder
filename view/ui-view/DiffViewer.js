@@ -5,7 +5,7 @@
 
 
 import React, { useState } from 'react';
-import { computeLineInformation } from '../../Main/compute-line-information';
+import { computeLineInformation } from '../../model/diff-fn/line-diff/compute-line-information';
 import { Table } from "@chakra-ui/react";
 import '../../view/styles/DiffViewer.css';
 import { DiffControls } from './DiffControls';

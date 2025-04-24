@@ -1,8 +1,7 @@
-import { buildValues } from "../model/diff-fn/char-diff/buildValues";
-
-import { equals, removeEmpty, castInput, postProcess } from "../model/diff-utils/Utils";
-import { extractCommon } from "../model/diff-fn/char-diff/extractCommon";
-import { addToPath } from "../model/diff-fn/char-diff/addToPath";
+import { equals, removeEmpty, castInput, postProcess } from "../../diff-utils/Utils";
+import { buildValues } from "./buildValues";
+import { extractCommon } from "./extractCommon";
+import { addToPath } from "./addToPath";
 
 export function diff(oldString, newString, tokenize, options = {}) {
   let callback = options.callback;

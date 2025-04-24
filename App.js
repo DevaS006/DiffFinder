@@ -1,4 +1,4 @@
-import { InputText } from "./Main/input-text";
+import { InputText } from "./view/ui-view/input-text";
 
 function App() {
   return (

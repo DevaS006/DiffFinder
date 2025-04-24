@@ -5,9 +5,9 @@
 
 
 import React, { useState } from 'react';
-import { computeLineInformation } from '../Main/DiffUtils';
+import { computeLineInformation } from '../../Main/compute-line-information';
 import { Table } from "@chakra-ui/react";
-import '../Styles/DiffViewer.css';
+import '../../view/styles/DiffViewer.css';
 import { DiffControls } from './DiffControls';
 import { UnifiedLine } from './UnifiedLine';
 import { SplitLine } from './SplitLine';

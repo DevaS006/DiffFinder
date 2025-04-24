@@ -6,7 +6,7 @@
 
 import React from 'react';
 import { Table } from "@chakra-ui/react";
-import { DiffType } from '../Diff_Fn/Char diff/constants';
+import { DiffType } from '../../model/diff-fn/char-diff/constants';
 
 export const DiffLine = ({ lineNumber, type, value }) => {
     // Checks if the line is marked as 'added' or 'removed' based on the diff type

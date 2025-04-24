@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './Styles/index.css';
+import './view/styles/index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from "./components/ui/provider.jsx"

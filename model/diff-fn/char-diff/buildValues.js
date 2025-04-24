@@ -3,7 +3,7 @@
 //  newString - Tokenized array of the "after" string.
 //  oldString - Tokenized array of the "before" string.
 
-import { join } from "../../Diff Utils/Utils";
+import { join } from "../../diff-utils/Utils";
  
 function buildValues( lastComponent, newString, oldString) {
   const components = [];

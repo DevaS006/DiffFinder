@@ -1,6 +1,6 @@
   // Matches equal characters on the diagonal path and appends them to the path.
 
-  import { equals } from "../../diff-utils/Utils";
+  import { equals } from "../../diff-utils/utils";
 function extractCommon(basePath, newString, oldString, diagonalPath,options) {
     let newLen = newString.length,
       oldLen = oldString.length,

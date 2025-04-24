@@ -1,5 +1,5 @@
 import { DiffType } from '../char-diff/constants';
-import { diffChars } from '../../diff-utils/DiffMethod';
+import { diffChars } from '../../diff-utils/diff-method';
 
 // /home/deva-zstch1414/Desktop/React_Mail/json_dif_analyser/src/Diff Utils/DiffMethod.js
 

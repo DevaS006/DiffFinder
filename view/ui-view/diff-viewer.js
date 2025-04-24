@@ -7,10 +7,10 @@
 import React, { useState } from 'react';
 import { computeLineInformation } from '../../model/diff-fn/line-diff/compute-line-information';
 import { Table } from "@chakra-ui/react";
-import '../../view/styles/DiffViewer.css';
-import { DiffControls } from './DiffControls';
-import { UnifiedLine } from './UnifiedLine';
-import { SplitLine } from './SplitLine';
+import '../../view/styles/diff-viewer.css';
+import { DiffControls } from './diff-controls';
+import { UnifiedLine } from './unified-line';
+import { SplitLine } from './split-line';
 
 const DiffViewer = ({ oldValue, newValue, viewMode, handleViewModeChange }) => {
   const [lines, setLines] = useState([]);

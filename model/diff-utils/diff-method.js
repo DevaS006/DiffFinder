@@ -1,5 +1,5 @@
 import { diff } from './../diff-fn/char-diff/diff';
-import { tokenizeChar,tokenizeLine } from './Utils';
+import { tokenizeChar,tokenizeLine } from './utils';
 
 // Character-level diffing using the base Diff class.
 // This module creates an instance of the Diff class for character-by-character comparison.

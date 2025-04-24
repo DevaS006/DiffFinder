@@ -1,7 +1,7 @@
 import { DiffType } from './../char-diff/constants';
-import { constructLines } from './constructLines';
-import { computeWordDiff } from './computeWordDiff';
-import {diffLines} from '../../diff-utils/DiffMethod'; 
+import { constructLines } from './construct-lines';
+import { computeWordDiff } from './compute-word-diff';
+import {diffLines} from '../../diff-utils/diff-method'; 
 
 
 // Computes detailed line-level diff information between two strings.

@@ -1,48 +1,27 @@
-import { equals, removeEmpty, castInput, postProcess } from "../../diff-utils/utils";
+import { equals, removeEmpty, castInput } from "../../diff-utils/utils";
 import { buildValues } from "./build-values";
 import { extractCommon } from "./extract-common";
 import { addToPath } from "./add-to-path";
 
-export function diff(oldString, newString, tokenize, options = {}) {
-  let callback = options.callback;
+export function diff(oldString, newString, tokenize) {
 
-  // If user passed a function instead of options object
-  if (typeof options === 'function') {
-    callback = options;
-    options = {};
-  }
-
-  // Final result processing + callback dispatch.
-  function done(value) {
-    value = postProcess(value, options);
-    if (callback) {
-      setTimeout(function () { callback(value); }, 0);
-      return undefined;
-    } else {
-      return value;
-    }
-  }
-
-
-  oldString = castInput(oldString);
-  newString = castInput(newString);
 
   // Tokenize both strings into arrays (default: chars)
 
-  oldString = removeEmpty(tokenize(oldString, options));
-  newString = removeEmpty(tokenize(newString, options));
+  oldString = removeEmpty(tokenize(oldString));
+  newString = removeEmpty(tokenize(newString));
 
   let newLen = newString.length, oldLen = oldString.length;
   let editLength = 1;
   let maxEditLength = newLen + oldLen;
-  let bestPath = [{ oldPos: -1, lastComponent: undefined }];
+  let bestPath = [{ oldPos: -1, lastComponent: null }];
 
   // Try to match common prefix right away
-  let newPos = extractCommon(bestPath[0], newString, oldString, 0, options);
+  let newPos = extractCommon(bestPath[0], newString, oldString, 0);
 
   // If completely equal, early return
   if (bestPath[0].oldPos + 1 >= oldLen && newPos + 1 >= newLen) {
-    return done(buildValues( bestPath[0].lastComponent, newString, oldString));
+    return buildValues( bestPath[0].lastComponent, newString, oldString);
   }
 
   // Used to avoid unnecessary diagonals
@@ -58,8 +37,9 @@ export function diff(oldString, newString, tokenize, options = {}) {
       let basePath;
       let removePath = bestPath[diagonalPath - 1],
         addPath = bestPath[diagonalPath + 1];
+
       if (removePath) {
-        bestPath[diagonalPath - 1] = undefined;
+        bestPath[diagonalPath - 1] = null;
       }
 
       let canAdd = false;
@@ -72,23 +52,23 @@ export function diff(oldString, newString, tokenize, options = {}) {
 
       // If neither add/remove path is valid, skip this diagonal
       if (!canAdd && !canRemove) {
-        bestPath[diagonalPath] = undefined;
+        bestPath[diagonalPath] = null;
         continue;
       }
 
       // Prefer path that made more progress (longer match)
       if (!canRemove || (canAdd && removePath.oldPos < addPath.oldPos)) {
-        basePath = addToPath(addPath, true, false, 0, options);
+        basePath = addToPath(addPath, true, false, 0);
       } else {
-        basePath = addToPath(removePath, false, true, 1, options);
+        basePath = addToPath(removePath, false, true, 1);
       }
 
-      newPos = extractCommon(basePath, newString, oldString, diagonalPath, equals, options);
+      newPos = extractCommon(basePath, newString, oldString, diagonalPath, equals);
 
 
       // Complete match
       if (basePath.oldPos + 1 >= oldLen && newPos + 1 >= newLen) {
-        return done(buildValues( basePath.lastComponent, newString, oldString,)) || true;
+        return buildValues( basePath.lastComponent, newString, oldString) || true;
       } else {
         bestPath[diagonalPath] = basePath;
         if (basePath.oldPos + 1 >= oldLen) {
@@ -104,26 +84,12 @@ export function diff(oldString, newString, tokenize, options = {}) {
   }
 
 
-  if (callback) {
-    (function exec() {
-      setTimeout(function () {
-        if (editLength > maxEditLength) {
-          return callback();
-        }
-
-        if (!execEditLength()) {
-          exec();
-        }
-      }, 0);
-    }());
-  } else {
     while (editLength <= maxEditLength) {
       let ret = execEditLength();
       if (ret) {
         return ret;
       }
     }
-  }
 };
 
 

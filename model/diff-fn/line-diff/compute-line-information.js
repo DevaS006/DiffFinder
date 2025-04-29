@@ -11,14 +11,9 @@ import {diffLines} from '../../diff-utils/diff-method';
 export const computeLineInformation = (
   oldString,
   newString,
-  disableWordDiff = false,
   linesOffset = 0
 ) => {
-  const diffArray = diffLines(oldString, newString, {
-    newlineIsToken: true,
-    ignoreWhitespace: false,
-    ignoreCase: false,
-  });
+  const diffArray = diffLines(oldString.trimRight(), newString.trimRight());
 
   let rightLineNumber = linesOffset;
   let leftLineNumber = linesOffset;
@@ -40,7 +35,7 @@ export const computeLineInformation = (
       if (
         ignoreDiffIndexes.includes(`${diffIndex}-${lineIndex}`) ||
         (evaluateOnlyFirstLine && lineIndex !== 0)
-      ) return undefined;
+      ) return null;
 
       if (added || removed) {
         if (!diffLineIndexes.includes(counter)) diffLineIndexes.push(counter);
@@ -58,16 +53,14 @@ export const computeLineInformation = (
           if (nextDiff?.added) {
             const nextDiffLines = constructLines(nextDiff.value)[lineIndex];
             if (nextDiffLines) {
-              const { value: rightValue, lineNumber, type } = getLineInformation(
+              const { value: rightValue } = getLineInformation(
                 nextDiff.value, diffIndex, true, false, true
               )[0].right;
               ignoreDiffIndexes.push(`${diffIndex + 1}-${lineIndex}`);
               right.lineNumber = rightLineNumber + 1;
               right.type = DiffType.ADDED;
-              right.value = disableWordDiff
-                ? rightValue
-                : computeWordDiff(line, rightValue).right;
-              if (!disableWordDiff) left.value = computeWordDiff(line, rightValue).left;
+              right.value = computeWordDiff(line, rightValue).right;
+              left.value = computeWordDiff(line, rightValue).left;
             }
           }
         } else {
@@ -99,7 +92,7 @@ export const computeLineInformation = (
   diffArray?.forEach(({ added, removed, value }, index) => {
     lineInformation = [
       ...lineInformation,
-      ...getLineInformation(value, index, added, removed),
+      ...getLineInformation(value, index, added, removed,false),
     ];
   });
 

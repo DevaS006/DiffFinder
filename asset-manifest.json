@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/DiffFinder/static/css/main.af8a9e4d.css",
-    "main.js": "/DiffFinder/static/js/main.cb962ea8.js",
+    "main.js": "/DiffFinder/static/js/main.d41b50df.js",
     "static/js/453.06416a9a.chunk.js": "/DiffFinder/static/js/453.06416a9a.chunk.js",
     "index.html": "/DiffFinder/index.html",
     "main.af8a9e4d.css.map": "/DiffFinder/static/css/main.af8a9e4d.css.map",
-    "main.cb962ea8.js.map": "/DiffFinder/static/js/main.cb962ea8.js.map",
+    "main.d41b50df.js.map": "/DiffFinder/static/js/main.d41b50df.js.map",
     "453.06416a9a.chunk.js.map": "/DiffFinder/static/js/453.06416a9a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.af8a9e4d.css",
-    "static/js/main.cb962ea8.js"
+    "static/js/main.d41b50df.js"
   ]
 }
